@@ -1,0 +1,269 @@
+<style>
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+ }
+
+/* Hide the images by default */
+.mySlides {
+    display: block;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    margin:0 auto;
+    animation-name: example;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+    position: absolute; 
+    display: block;
+    left:0%;
+    top: 0%; 
+    color: #f1f1f1;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    line-height: 1;
+    overflow: hidden;
+ /* border-radius: 20px;**/
+}
+
+.alinearTexto{
+   position: relative; 
+    display: block;
+    top: 40%; 
+    width: 100%;
+    height: 40%;
+}
+.text h1{
+    
+    font-size: 45px;
+    color:white;
+    animation-name: animationH1;
+    animation-duration: 1s;
+    margin-top:-1%;
+    font-family: 'Candal', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    
+}
+.text h1 small{
+   font-size:30px;
+   
+}
+
+.text p{
+    top:1px;
+    width: 90%;
+    font-size: 14px;
+    margin-left:5%;
+}
+.text button{
+    width: 180px;
+    height: 40px;
+    color:white;
+    background-color: black;
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Candal', sans-serif;
+    font-size:18px;
+}
+.text button:hover{
+    width: 180px;
+    height: 40px;
+    color:black;
+    background-color: white;
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size:18px;
+    
+    
+}
+
+@keyframes animationTop {
+  from {top: -20px;opacity: 0;}
+  to {top: 0px;opacity: 1;}
+}
+
+@keyframes animationH1 {
+  from {opacity: 0; margin-top:-10%;}
+  to {opacity: 1; margin-top:-1%;}
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade.ng-show {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+
+.img{
+    width:100%;
+    display:block;
+    margin: 0 auto;
+    height: 100%;
+    top: 50%;
+   
+}
+@-webkit-keyframes example {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes example {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/* ANIMATIONS */
+.fade.ng-enter {
+  transition:2s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.fade.ng-leave {
+  transition:2s linear all;
+  opacity:1;
+}
+.fade.ng-leave.ng-leave-active {
+  opacity:0;
+}
+@media only screen and (max-width: 600px) {
+  .slideshow-container {
+  height: 100%;
+  width: auto;
+  
+ }
+ .img{
+    height: 100%;
+    width: auto;
+    display:block;
+    margin-left: -120%;
+    top: 50%;
+    object-fit:cover;
+   
+}
+.alinearTexto{
+   position: relative; 
+    display: block;
+    top: 25%; 
+    width: 100%;
+    height: 40%;
+}
+.slideshow-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: auto;
+ }
+ .text h1{
+    
+    font-size: 40px;
+    color:white;
+    animation-name: animationH1;
+    animation-duration: 1s;
+    margin-top:-1%;
+    font-family: 'Candal', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+    
+}
+ @keyframes animationH1 {
+  from {opacity: 0; font-size: 20px;}
+  to {opacity: 1;font-size: 40px;}
+}
+}
+</style>
+<!-- Slideshow container -->
+
+<div class="slideshow-container" ng-cloak>
+    <md-progress-linear md-mode="indeterminate" ng-show="loadingSliders"></md-progress-linear>
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides" ng-repeat="f in slidersSi track by $index" ng-show="isThis($index)" ng-cloak>
+      <div class="img">
+          <sliderefectos></sliderefectos>
+      </div>
+        <div ng-show="isThis($index)" class="text">
+            <div class="alinearTexto">
+                <h1>SORPREND&Eacute; A TU AMIGA O AMIGO CON<br/><small>UNA BIRRA</small></h1>
+                <button href="#invitar" title="Quiero invitar una birra ya!" du-smooth-scroll du-scrollspy>&iexcl;YA!</button>
+            </div>
+        </div>
+  </div>
+  
+  <!-- Next and previous buttons -->
+ <!-- <a class="prev" ng-click="ruedatexto('resta')"><img src="img/icon/baseline_arrow_back_ios_white_18dp.png"/></a>
+  <a class="next" ng-click="ruedatexto('suma')"><img src="img/icon/baseline_arrow_forward_ios_white_18dp.png"/></a>-->
+</div>
+<br>
+
+<!-- The dots/circles -->
+<!--<div style="text-align:right; margin-right:8%;">
+<div style="text-align:center;display: inline-block;"  ng-repeat="s in foto track by $index">
+  <span  class="dot" ng-click="elegir($index);" ng-class="{ 'active': isThis($index) }"></span> 
+</div>
+</div>   --> 
+  

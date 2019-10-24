@@ -1,0 +1,83 @@
+<style>
+.header{
+    background-color: white;
+    width: 100%;
+    height: 16%;
+    box-shadow: 3px 3px 3px #DF3786;
+    position: fixed;
+    z-index:10;
+
+    }    
+    
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C63B78;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #B8C96A;
+    color:white;
+}
+li a:active {
+    background-color: #B8C96A;
+    color:white;
+}
+</style>
+<div layout="row" layout-align="space-around center" class="header">
+    <div hide show-sm show-xs>
+        <md-button class="md-icon-button md-primary" ng-click="toggleLeft()" aria-label="Settings">
+            <md-icon md-svg-icon="img/icon/ic_menu_black_24px.svg"></md-icon>
+        </md-button>  
+    </div>
+    <div hide show-sm show-xs>
+        <center>
+            <a href="/" style="text-decoration:none;">
+                <img src="{{logoHeader.url}}" alt="{{logoHeader.alt}}" title="{{logoHeader.alt}}" style="width:{{logoHeader.width}}; height: auto;"/>
+            </a>
+        </center>    
+    </div>
+    <div hide-sm hide-xs>
+        <a href="/" style="text-decoration:none;" du-smooth-scroll du-scrollspy>
+            <img src="{{logoHeader.url}}" alt="{{logoHeader.alt}}" title="{{logoHeader.alt}}" style="width:{{logoHeader.width}}; height: auto;"/>
+        </a>
+    </div>
+    <div hide-sm hide-xs>
+        <ul>
+            <li ng-repeat="m in menuHeader track by $index;">
+                <a href="{{m.href}}" class="md-subhead" du-smooth-scroll du-scrollspy>{{m.link}}</a>
+            </li>
+        </ul>
+    </div>
+   
+</div>
+
+
+
+<md-sidenav class="md-sidenav-left" md-component-id="left"
+                md-disable-backdrop md-whiteframe="4" style="background-color: #C63B78;">
+    <md-toolbar style="background-color: #C63B78; color:white;">
+        <md-button class="md-icon-button md-primary" ng-click="toggleLeft()" aria-label="Settings">
+            <md-icon md-svg-icon="img/icon/ic_close_white_24px.svg"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <div layout="column" layout-align="center center">
+        <p ng-repeat="m in menuHeader track by $index;">
+            <a href="{{m.href}}" class="md-subhead" style="color:white; text-decoration: none;">{{m.link}}</a>
+        </p>
+    </div>
+</md-sidenav>

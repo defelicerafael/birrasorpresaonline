@@ -1,0 +1,104 @@
+<style>
+    h1{
+        color:#003C72;
+        text-align: center;
+    }
+</style>
+<div ng-init="isSigned();"></div>
+<header logo="{{ctrl.logo}}" menu="{{ctrl.panel}}" link="panel/"></header>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1 class="md-headline">ADMINISTRADOR</h1>
+
+<md-content layout="column"  class="md-padding">
+    <section ng-init="ctrl.traerBirraSorpresamostrarSi();">
+        <md-progress-linear md-mode="indeterminate" ng-show="loadingBirraSorpresa"></md-progress-linear>
+            
+        <md-subheader class="md-primary"> COMPRADORES ({{ctrl.cantidadBs}})</md-subheader>
+        
+<md-tabs md-dynamic-height md-border-bottom >
+    <md-tab label="COMPRADORES" >
+            <md-input-container class="md-icon-float md-block">
+                <label>EMAIL:</label>
+                <md-icon md-svg-src="img/icon/round-search-24px.svg" class="name"></md-icon>
+                <input ng-model="email" type="text">
+            </md-input-container>
+        <md-list flex>    
+            <md-list-item class="md-3-line" ng-click="null" ng-repeat="user in ctrl.bs | orderBy:'fecha_invitacion': true | filter :{'guest_celu':celular,'email':email} track by $index">
+                    <div class="md-list-item-text" layout="column">
+                      <h4>Fecha: {{user.fecha_invitacion}}</h4>
+                      <h3>Nombre: {{user.nombre}} {{ user.apellido}}</h3>
+                      <p>Email - {{ user.email}} </p>
+                      <h3>Fecha de Pago: {{user.fecha_pago}}</h3>
+                      
+                      <p ng-if="respuesta"></p>
+                    </div>
+                        <md-button ng-if="user.pagado=='no'" class="md-secondary md-icon-button"  aria-label="pago" ng-click="ctrl.Edit({'pagado':'si'},'invitacion',user.id,1);">
+                            <md-tooltip md-direction="top">NO PAGO</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/round-monetization_on-24px.svg"></md-icon>
+                            <!-- outline-done-24px.svg-->
+                        </md-button>
+                        <md-button ng-if="user.pagado=='si'" class="md-secondary md-icon-button"  aria-label="pago" ng-click="ctrl.Edit({'pagado':'no'},'invitacion',user.id,1);">
+                            <md-tooltip md-direction="top">YA PAGO</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/outline-done-24px.svg"></md-icon>
+                            <!-- outline-done-24px.svg-->
+                        </md-button>
+                        <md-button class="md-secondary md-icon-button" ng-click="ctrl.EditAdv({'mostrar':'no'},'invitacion',user.id,1);" aria-label="delete" style="background-color:red">
+                            <md-icon md-svg-icon="img/icon/ic_delete_white_24px.svg"></md-icon>
+                        </md-button>
+                       <!-- <md-button  class="md-secondary md-icon-button" aria-label="email" ng-click="EnviarMail({'nombre':user.name,'apellido':user.apellido,'email':user.email,'amigo':user.guest_nombre},'pago');">
+                            <md-tooltip md-direction="top">Enviar Email</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/outline-email-24px.svg"></md-icon>
+                        </md-button>-->
+                        
+                <md-divider></md-divider>  
+              </md-list-item>
+        </md-list>
+    </md-tab>
+    <md-tab label="SORPRENDIDOS" >
+        <md-list flex>
+            <md-input-container class="md-icon-float md-block">
+                <label>CELULAR:</label>
+                <md-icon md-svg-src="img/icon/round-search-24px.svg" class="name"></md-icon>
+                <input ng-model="celular" type="text">
+            </md-input-container>
+            <md-list-item class="md-3-line" ng-click="null" ng-repeat="user in ctrl.bs | orderBy:'fecha_invitacion': true | filter :{'guest_celu':celular,'email':email} track by $index">
+                    <div class="md-list-item-text" layout="column">
+                      <h4>Fecha: {{user.fecha_invitacion}}</h4>
+                      <h3>Sobrenombre: {{user.guest_nombre}}</h3>
+                      <p>Email: {{ user.email}}  - {{user.guest_celu}}</p>
+                      <h3>Fecha de RETIRO: {{user.fecha_retiro}}</h3>
+                    </div>
+                        <md-button ng-if="user.retiro=='no'" class="md-secondary md-icon-button" aria-label="retiro" ng-click="ctrl.Edit({'retiro':'si'},'invitacion',user.id,1);">
+                            <md-tooltip md-direction="top">NO RETIRO</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/baseline-airport_shuttle-24px.svg"></md-icon>
+                        </md-button>
+                        <md-button  ng-if="user.retiro=='si'" class="md-secondary md-icon-button" aria-label="retiro" ng-click="ctrl.Edit({'retiro':'no'},'invitacion',user.id,1);">
+                            <md-tooltip md-direction="top">YA RETIRO</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/outline-done-24px.svg"></md-icon>
+                        </md-button>
+                      
+                       
+                        <md-button  ng-if="user.aviso=='no'" class="md-secondary md-icon-button" aria-label="Aviso No" ng-click="ctrl.Edit({'aviso':'si'},'invitacion',user.id,1);">
+                            <md-tooltip md-direction="top">NO LE AVISARON</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/baseline-voice_over_off-24px.svg"></md-icon>
+                        </md-button>
+                        <md-button  ng-if="user.aviso=='si'" class="md-secondary md-icon-button" aria-label="Aviso Si" ng-click="ctrl.Edit({'aviso':'no'},'invitacion',user.id,1);">
+                            <md-tooltip md-direction="top">YA LE AVISARON</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/baseline-record_voice_over-24px.svg"></md-icon>
+                        </md-button>
+                
+                        <md-button  class="md-secondary md-icon-button" aria-label="whatsApp" ng-click="showPrompt($event,user.guest_celu,user.guest_nombre)">
+                            <md-tooltip md-direction="top">Enviar WhattApp</md-tooltip>
+                            <md-icon md-svg-icon="img/icon/whatsapp-logo.svg"></md-icon>
+                        </md-button>
+                        <br/>
+                <md-divider></md-divider>  
+            </md-list-item>
+        </md-list>
+    </md-tab>
+</md-tabs>
+</section>  
+</md-content>

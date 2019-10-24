@@ -1,0 +1,8 @@
+https://birrasorpresa.com.ar/
+pago_exitoso?
+collection_id=4775371422
+&collection_status=approved
+&preference_id=160687923-66040c05-5062-4ac7-881e-6af7141663c8
+&external_reference=birrasorpresa
+&payment_type=account_money
+&merchant_order_id=1108055648

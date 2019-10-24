@@ -1,0 +1,149 @@
+<style>
+.cut{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 90% 0% 0%);
+    animation-delay: 0.1s;
+    position: relative;
+    visibility: hidden;
+    
+    
+    
+}
+.cut1{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1.5s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 80% 0% 10%);
+    animation-delay: 0.2s;
+    position: relative;
+    visibility: hidden;
+   
+  
+  
+}
+.cut2{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 70% 0% 20%);
+    animation-delay: 0.3s;
+    position: relative;
+    visibility: hidden;
+   
+   
+}
+.cut3{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1.5s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 60% 0% 30%);
+    animation-delay: 0.4s;
+    position: relative;
+    visibility: hidden;
+    
+}
+.cut4{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 50% 0% 40%);
+    animation-delay: 0.5s;
+    position: relative;
+    visibility: hidden;
+   
+}
+.cut5{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 40% 0% 50%);
+    animation-delay: 0.6s;
+    position: relative;
+    visibility: hidden;
+   
+}
+.cut6{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 30% 0% 60%);
+    animation-delay: 0.7s;
+    position: relative;
+   visibility: hidden;
+}
+.cut7{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1.5s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 20% 0% 70%);
+    animation-delay: 0.8s;
+    position: relative;
+    visibility: hidden;
+    
+}
+.cut8{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 10% 0% 80%);
+    animation-delay: 0.9s;
+    position: relative;
+    visibility: hidden;
+   
+}
+.cut9{
+    -webkit-animation: mymove 1s normal; /* Safari 4.0 - 8.0 */
+    animation: mymove 1.5s normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    clip-path: inset(0% 0% 0% 90%);
+    animation-delay: 1s;
+    position: relative;
+    visibility: hidden;
+    
+}
+.cut10{
+    visibility: hidden;
+}
+.column {
+  float: left;
+  width: 4px;
+  text-align: center;
+}
+
+/* Clear floats after image containers */
+.row {
+  content: "";
+  clear: both;
+  display: table;
+  text-align:center;
+  background-color: black;
+  width: 100%;
+  text-align: center;
+  margin-left: 11%;
+}
+
+@-webkit-keyframes mymove {
+  from {transform: rotateX(90deg);opacity: 0.1;visibility: hidden;}
+  to {transform: rotateX(0deg);opacity: 1;visibility:visible;}
+}
+
+</style>
+<div style="background-color: black;width: 100%;">
+    <div class="row" id="contenedor">
+        <div class="column" ng-repeat="x in clas">
+            <img ng-src="{{fotoelegidaN}}" class="{{x}}" id="{{x}}"/>
+        </div>
+    </div>
+ </div>

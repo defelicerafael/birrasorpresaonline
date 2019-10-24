@@ -1,0 +1,2 @@
+{"require":{"google/apiclient": "^2.0",
+        "mercadopago/dx-php": "dev-master"}}

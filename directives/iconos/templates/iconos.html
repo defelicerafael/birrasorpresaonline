@@ -1,0 +1,61 @@
+<style>
+    
+.cumples{
+    background-color:white;
+    text-align: center;
+    position:relative;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.cumplesCenter {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5vw;
+    letter-spacing: 2px;
+    color:white;
+    font-family: 'Pangolin', cursive;
+    line-height: 1;
+    opacity: 1;
+    padding: 15px;
+    text-shadow: 2px 2px 5px black;
+    
+}        
+.cumples img{
+    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+    opacity: 0.8;
+   
+}  
+.cumplesDesc{
+    background-color: #DED8BE; 
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color:#003366;
+    font-family: 'Sriracha', cursive;
+    height: 230px;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 15px;
+    line-height: 1.6;
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .cumplesCenter{
+        font-size: 8vw; 
+    }
+} 
+</style>
+<md-progress-linear md-mode="query" ng-show="loadingProductos"></md-progress-linear>
+    <div layout="row" layout-wrap  layout-align="space-around center">
+        <div ng-repeat="i in iconos track by $index" class="cumples" flex="20" flex-xs="33">
+            <a ng-href="{{i.link}}" style="text-decoration: none;">
+                <img ng-src="{{i.url}}" alt="{{i.alt}}" title="{{i.alt}}" style="max-width: 100%;height: auto;"/>
+            </a>
+        </div>
+    </div>

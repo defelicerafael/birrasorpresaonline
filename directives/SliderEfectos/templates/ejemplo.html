@@ -1,0 +1,40 @@
+<style>
+#main { position: relative; width: 400px; height: 300px; border: 1px solid #000; overflow: hidden; }
+ul, li {  margin: 0; padding: 0; border: 0; }
+#main li { 
+    display: inline-block; width: 400px; height: 300px; 
+}
+ul { left: 0; width: 2000px; position:relative; 
+    -webkit-transition: left .2s linear;
+    -moz-transition: left .2s linear;
+    -o-transition: left .2s linear;
+    -ms-transition: left .2s linear;
+    transition: left .2s linear;
+}
+#left { display: block; position: absolute; left: 10px; top: 50%; }
+#right { display: block; position: absolute; right: 10px; top: 50%; }
+
+</style>
+<div id="main" role="main">
+    <ul id="blocks">
+        <li style="background: #f00;"></li><li style="background: #0f0;"></li><li style="background: #00f;"></li><li style="background: #ff0;"></li><li style="background: #0ff;"></li>
+    </ul>
+    <a id="left" href="" onclick="moveBlock('forward'); return false">left</a>
+    <a id="right" href="" onclick="moveBlock('back'); return false">right</a>
+</div>
+
+<script>
+    var blocks = $('#blocks li');
+var count = 0;
+
+function moveBlock(direction) {
+    if (direction === 'forward' && count < (blocks.length - 1)) {
+        count++;
+    }
+    else if (direction === 'back' && count > 0) {
+        count--;
+    }
+    $('#main ul').css('left', '-' + (count * blocks.width()) + 'px');
+    return false;
+}
+</script>

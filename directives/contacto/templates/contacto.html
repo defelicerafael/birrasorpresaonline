@@ -1,0 +1,168 @@
+<style>
+html {
+    height: 100%;
+   background-color: white;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("img/home/slider/Berlina-SanIsidro-02.jpg");
+    min-height: 450px;
+/* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+    color:white;
+    position: absolute;
+    margin: 5%;
+    padding: 2%;
+    background: rgba(0, 0, 0, 0.7);
+    max-width:100%;
+    height: 60%;
+    margin-top:0%;
+   
+}
+
+/* Full-width input fields */
+input[type=text], input[type=email] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-color: black;
+    color: white;
+    padding: 3%;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    opacity: 0.9;
+    border-radius: 15px;
+    margin-top:5%;
+    font-family: 'Rye', cursive;
+    
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+
+
+legend{
+    text-align: center;
+}
+.textbutton{
+    width: 280px;
+    height: 40px;
+    color:white;
+    background-color: black;
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Rye', cursive;
+    font-size:18px;
+    margin-top: 10px;
+}
+.textbutton:hover{
+    width: 280px;
+    height: 40px;
+    color:black;
+    background-color: white;
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size:18px;
+    
+    
+}
+label{
+    background-color: black;
+    padding: 2px;
+}
+@media screen and (max-width: 600px) {
+    .bg-img {
+    /* The image used */
+    background-image: url("img/home/slider/Berlina-SanIsidro-02.jpg");
+    min-height: 800px;
+/* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    position: relative;
+}
+}
+</style>
+
+<div ng-hide="pagar">
+    <form name="projectForm" ng-submit="insert(user,'invitacion');">
+        <div class="bg-img">
+            <div class="container">
+                <div layout="row" layout-xs="column">
+                    <div flex="50" flex-xs="100">
+                        <fieldset>
+                            <legend>YO SOY</legend>
+                            <label for="nombre" class="md-subhead"><b>Mi nombre:</b></label>
+                            <input type="text" placeholder="Escriba su nombre" name="user_nombre" ng-model="user.nombre" required>
+
+                            <label for="apellido" class="md-subhead"><b>Mi apellido:</b></label>
+                            <input type="text" placeholder="Escriba su apellido" name="user_apellido" ng-model="user.apellido" required>
+
+                            <label for="email" class="md-subhead"><b>Mi Email:</b></label>
+                            <input type="email" placeholder="Escriba su Email" name="user_email" ng-model="user.email" required>
+                        </fieldset>
+                    </div>
+                    <div flex="50" flex-xs="100">
+                        <fieldset>
+                            <legend>VOY A SORPRENDER CON UNA BIRRA A:</legend>
+                            <label for="nombre" class="md-subhead"><b>Nombre o Apodo:</b></label>
+                            <input type="text" placeholder="Escriba el nombre" name="guest_nombre" ng-model="user.guest_nombre" required >
+
+                            <label for="telefono" class="md-subhead"><b>Celular:</b></label>
+                            <input type="text" placeholder="Sin el 15, Sin el +54 Ej: 1144370598" name="guest_celular" ng-model="user.guest_celu" required>
+                            
+                            <label for="telefono" class="md-subhead"><b>Email:* No es obligatorio</b></label>
+                            <input type="text" placeholder="Escriba el email" name="guest_mensaje" ng-model="user.guest_mensaje">
+                        </fieldset>
+                    </div>
+                </div>
+                <div layout="column" layout-align="center center">
+                    <div>
+                        <input ng-hide="isLoading" type="submit" class="textbutton" value="PAGAR UNA BIRRA"/>
+                        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
+                        <p style="text-align: center; font-family: 'Rye', cursive;"> *Con Mercado Pago </p>
+                    </div>
+                </div>
+                
+                    
+                    
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+     
+

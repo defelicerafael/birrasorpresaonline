@@ -1,0 +1,311 @@
+<style>
+ html, body {
+      margin: 0;
+      padding: 0;
+}
+.dentro{
+    font-family: 'Oswald-extralight', sans-serif; 
+    letter-spacing: 0.05em; 
+    font-weight: 200; 
+    font-size:16px;
+    animation-name: none;
+    animation-duration: 1s;
+    left:0px;
+    position:relative;
+    visibility: hidden;
+    border-radius:5px;
+    width: 100%;
+    
+    
+}
+hr {
+  border: 1px solid white;  
+  height: 5px;
+  width: 20%;
+  background-color: white;
+  
+}
+hr.r {
+  height: 5px;
+  width: 20%;
+  background-color: #004165;
+  float:right;
+}
+hr.l {
+  height: 5px;
+  width: 20%;
+  background-color: white;
+  float:left;
+}
+.letra{
+    font-size:18px;
+    color:white;
+    text-align: center;
+    letter-spacing: 0.3em;
+    
+    font-family: 'Candal', sans-serif;
+}
+.letraMenos{
+    font-size:14px;
+    color:white;
+    text-align: justify;
+    font-family: 'Candal', sans-serif;
+    line-height: 1.6;
+    padding: 10px;
+   
+}
+
+.acolor{
+  animation-name: none;
+  animation-duration: 3s;  
+}
+@keyframes entrar {
+  from {opacity: 0;left:-300px; border-radius:100px; -webkit-filter: grayscale(100%);grayscale invert(100%);}
+  to {opacity:1;left:0px;border-radius:5px;-webkit-filter: grayscale(0%);filter: grayscale(0%);}
+}
+@keyframes salir {
+  from {opacity: 1;left:0px;}
+  to {opacity:0;left:-100px;border-radius:0px;}
+}
+
+@keyframes acolor {
+  from {-webkit-filter: grayscale(100%);grayscale invert(100%);}
+  to {-webkit-filter: grayscale(0%);grayscale invert(0%);}
+}
+@keyframes respirar {
+  from {
+       
+        background: rgba(255, 255, 255, 0.2);
+  }
+  to {
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.1);
+  }
+}
+@keyframes moverse {
+  from {
+        transform: translateX(-25px)
+  }
+  to {
+       transform: translateX(25px)
+  }
+}
+@keyframes subir {
+  from {
+        transform: translateY(0px)
+  }
+  to {
+       transform: translateY(-3000px)
+  }
+}
+.circulo {
+     width: 30px;
+     height: 30px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: rgba(0, 0, 0, 0.1);
+     border: 3px solid #67C972;
+     position:relative;
+     top:0px;
+     
+     
+     animation-name: respirar;
+     animation-duration: 1s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-in-out;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: respirar;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    z-index: 20;
+     
+}
+
+.moverse{
+     animation-name: moverse;
+     animation-duration: 1s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-in-out;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: moverse;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+.ease{
+    animation-name: subir;
+     animation-duration: 20s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: subir;
+    -webkit-animation-duration: 20s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+.linear{
+    animation-name: subir;
+     animation-duration: 25s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: linear;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: subir;
+    -webkit-animation-duration: 25s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+.easein{
+    animation-name: subir;
+     animation-duration: 15s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-in;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: subir;
+    -webkit-animation-duration: 15s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+.easeout{
+    animation-name: subir;
+     animation-duration: 35s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-out;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: subir;
+    -webkit-animation-duration: 35s;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+.easeinout{
+    animation-name: subir;
+     animation-duration: 30s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-in-out;
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: subir;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+.cube{
+    animation-name: subir;
+     animation-duration: 30s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: cubic-bezier(0.9, 0.7, 1.0, 0.1);
+      /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: subir;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: cubic-bezier(0.9, 0.7, 1.0, 0.1);
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+#somos{
+    box-sizing: border-box; 
+    background-image: url('img/home/slider/pared-madera-oscura_1194-7058.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+</style>
+
+<div>
+    <header logo="{{ctrl.logo}}" menu="{{ctrl.menu}}"></header>
+</div>
+
+<div style="width:100%; height: 100%; top: 5%; display: block; margin: 0 auto;">
+    <div ng-init="ctrl.traerSlidersMostrarSi();">
+        <md-progress-linear md-mode="indeterminate" ng-show="loadingSliders"></md-progress-linear>
+        <newslider></newslider>
+    </div>
+
+    <section id="somos">
+      <separador separador="LA AMISTAD Y LA CERVEZA"></separador>
+    
+        <div layout="row" layout-xs="column" layout-align="space around" layout-align-xs="center center">
+            <div flex="40" layout-align="center center" layout="row" flex-xs="30" style="overflow: hidden;">
+                <img id="imgdentro" class="dentro" src="img/home/slider/Berlina-SanIsidro-02.jpg" alt="Invita una pinta" title="Invita una pinta"/>
+            </div>
+            <div  flex="50" flex-xs="90">
+                <hr>
+                <br/>
+                <p class="letra">Te invito una birra</p>
+                <p class="letraMenos">Berlina San Isidro te da la posibilidad de regalarle un momento &uacute;nico a esa amiga o amigo que tanto quer&eacute;s.<br/>
+                    Invitale un vaso de <b>BIRRA ARTESANAL</b>, nosotros le avisamos por Whatsapp.<br/>
+En Berlina cuidamos y fomentamos la amistad porque sabemos que no hay nada mejor que una amiga o un amigo para tomar una rica cerveza.
+                </p>
+                <br/>
+                 <hr>
+                 <br/>
+                 <div layout="row" layout-align="space-around center">
+                     <div id="twitter">
+                        <a href="#"
+                           socialshare
+                           socialshare-provider="twitter"
+                           socialshare-text="Regalale un vaso de Berlina, regalale un momento &uacute;nico a tus amigos y amigas"
+                           socialshare-hashtags="birrasorpresa #berlinasanisidro"
+                           socialshare-url="https://birrasorpresa.com.ar">
+                            <img src="img/redes/twitter.png" style="width:60px; height: auto;" alt="Compartilo en twitter" title="Compartilo en twitter"/>
+                       </a>
+                    </div>
+                    <div id="facebook">
+                        <div class="fb-share-button" data-href="http://localhost/berlinasanisidro/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fberlinasanisidro%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img src="img/redes/facebook.png" style="width:60px; height: auto;" alt="Compartilo por Facebook" title="Compartilo por Facebook"/></a></div>
+                    </div>
+                    <div id="whatsapp">
+                        <a href="#"
+                           socialshare
+                           socialshare-provider="whatsapp"
+                           socialshare-text="Regalale un vaso de Berlina, regalale un momento &uacute;nico a tus amigos y amigas"
+                           socialshare-url="https://birrasorpresa.com.ar">
+                            <img src="img/redes/whatsApp.png" style="width:60px; height: auto;" alt="Compartilo por whatsApp" title="Compartilo por whatsApp"/>
+                       </a>
+                    </div> 
+                 </div>
+            </div>
+        </div>
+    
+      <br/> 
+    </section>
+    
+    
+     
+    <!-- ACA ESTAN LOS PRODUCTOS-->
+    
+  
+    
+    <!-- ACA EMPIEZA CONTACTO -->
+    <section style="box-sizing: border-box; padding: 1.5%;"  id="invitar">
+        <separador separador="HOY TE SORPRENDO"></separador>
+        <contacto></contacto>
+    </section>
+    <br/>
+    <hr>
+    <section style="box-sizing: border-box; background-color: white;" ng-init="ctrl.traerBirrasMostrarSi();" id="birras">
+        <separador separador="NUESTRAS CERVEZAS"></separador>
+        <br/>
+             <iconos icono="{{ctrl.birrasSi}}" ng-show="!loadingBirras"></iconos>
+    </section>
+    <hr>
+    <section style="box-sizing: border-box; padding: 1.5%;">
+        <footer></footer>
+    </section>
+</div>

@@ -1,0 +1,151 @@
+<style>
+    h1,h3{
+        color:#003C72;
+        text-align: center;
+    }
+</style>
+<div ng-init="isSigned();"></div>
+<header logo="{{ctrl.logo}}" menu="{{ctrl.panel}}" link="panel/"></header>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1 class="md-headline">MI CUENTA</h1>
+<section ng-init="ctrl.Select({'apodo':ctrl.cerveceria},'cerveceria','id', 'ASC', '1');" style="padding:25px; box-sizing: border-box;">
+    <md-divider></md-divider>
+    <md-progress-linear md-mode="indeterminate" ng-show="buscando"></md-progress-linear>
+    <div>
+        <h3 class="md-title" ng-show="!buscando"> LOS DATOS DE MI CERVECERIA </h3>
+    </div>
+    <div layout="column" layout-align="start start" ng-show="!buscando" ng-init="ctrl.crearApodo(ctrl.micerveceria[0].nombre);">  
+        
+        
+        <div>           
+            <md-input-container>
+                <label>Nombre:</label>
+                <input ng-model="ctrl.micerveceria[0].nombre" size="100" placeholder="Nombre de la cerveceria">
+            </md-input-container>
+        </div>
+        <div>           
+           <md-input-container>
+                <label>Apodo {{ctrl.crearApodo(ctrl.micerveceria[0].nombre);}}</label>
+                
+                <input ng-if="ctrl.micerveceria[0].apodo === ctrl.crearApodo(ctrl.micerveceria[0].nombre);" ng-model="ctrl.micerveceria[0].apodo" size="100" placeholder="Apodo de la cerveceria" disabled>
+                <input ng-if="ctrl.micerveceria[0].apodo !== ctrl.crearApodo(ctrl.micerveceria[0].nombre);" ng-model="ctrl.micerveceria[0].apodo" size="100" placeholder="Apodo de la cerveceria">
+           </md-input-container>
+         </div>
+        <div>           
+            <md-input-container>
+                <label>EMAIL</label>
+                <input ng-model="ctrl.micerveceria[0].email" size="100" placeholder="email de la cerveceria" type="email">
+            </md-input-container>
+        </div>
+        <div>           
+            <md-input-container>
+                <label>DIRECCI&Oacute;N</label>
+                <input ng-model="ctrl.micerveceria[0].direccion" size="100" placeholder="dirección de la cerveceria">
+            </md-input-container>
+        </div>
+        <md-input-container>
+            <label>LINK</label>
+            <input ng-model="ctrl.micerveceria[0].link" size="200" placeholder="Este es tu link" disabled>
+        </md-input-container>
+        <div>           
+            <md-input-container>
+                <label>LINK DE MERCADO PAGO</label>
+                <input ng-model="ctrl.micerveceria[0].mercadopago" size="200" placeholder="Este es tu link de mercadopago">
+            </md-input-container>
+        </div>
+        <div>           
+            <md-input-container>
+                <label>LINK DE INSTAGRAM</label>
+                <input ng-model="ctrl.micerveceria[0].instagram" size="200" placeholder="Este es tu link de instagram">
+            </md-input-container>
+        </div>
+        <div>           
+            <md-input-container>
+                <label>LINK DE FACEBOOK</label>
+                <input ng-model="ctrl.micerveceria[0].facebook" size="200" placeholder="Este es tu link de facebook">
+            </md-input-container>
+        </div>
+        <div>           
+            <md-input-container>
+                <label>WEB</label>
+                <input ng-model="ctrl.micerveceria[0].web" size="200" placeholder="Este es el link de la WEB">
+            </md-input-container>
+        </div>
+        
+        <p> LOGO</p>
+        <img src="{{ctrl.micerveceria[0].logo}}" atl="{{ctrl.micerveceria[0].nombre}} - logo" title="{{ctrl.micerveceria[0].nombre}} - logo" style="width:100px; height: auto;"/>
+         
+        
+        <fieldset style="border: dotted gray 3px;">
+            <legend style="text-align:center;">CAMBIAR LOGO</legend>
+                <div>
+                    <h4 style="color:red">La foto tiene que tener 300 de ancho x 300 de alto<br/>
+                    Sino el sistema, la adaptar&aacute; a su parecer, y no siempre quedar&aacute; a su gusto</h4>
+                        <upload-icon dirimg="../../../img/{{ctrl.cerveceria}}/logo/" titulo="LOGO" direccion="../../../img/{{ctrl.cerveceria}}/logo/"></upload-icon>
+                </div>
+                <div>
+                    <md-button class="md-warn" ng-click="ctrl.copiarUrl();">Copiar Url de la foto</md-button>
+                </div>    
+                <div>    
+                    <md-input-container>
+                        <label>Pegar direcci&oacute;n de foto principal</label>
+                        <input ng-model="ctrl.id_foto">
+                    </md-input-container>
+                </div>
+        </fieldset>    
+        <p> FOTO PRINCIPAL</p>
+        <img src="{{ctrl.micerveceria[0].foto_grande}}" atl="{{ctrl.micerveceria[0].nombre}} - logo" title="{{ctrl.micerveceria[0].nombre}} - logo" style="width:300px; height: auto;"/>
+         
+        
+        <fieldset style="border: dotted gray 3px;">
+            <legend style="text-align:center;">CAMBIAR LOGO</legend>
+                <div>
+                    <h4 style="color:red">La foto tiene que tener 600 de ancho x 400 de alto<br/>
+                    Sino el sistema, la adaptar&aacute; a su parecer, y no siempre quedar&aacute; a su gusto</h4>
+                        <upload-icon dirimg="../../../img/home/secciones/" titulo="FOTO PRINCIPAL" direccion="../../../img/home/secciones/"></upload-icon>
+                </div>
+                <div>
+                    <md-button class="md-warn" ng-click="ctrl.copiarUrl();">Copiar Url de la foto</md-button>
+                </div>    
+                <div>    
+                    <md-input-container>
+                        <label>Pegar direcci&oacute;n de foto principal</label>
+                        <input ng-model="ctrl.id_foto">
+                    </md-input-container>
+                </div>
+        </fieldset>
+        <p> FOTO CHICA</p>
+        <img src="{{ctrl.micerveceria[0].foto_chica}}" atl="{{ctrl.micerveceria[0].nombre}} - logo" title="{{ctrl.micerveceria[0].nombre}} - logo" style="width:300px; height: auto;"/>
+         
+        
+        <fieldset style="border: dotted gray 3px;">
+            <legend style="text-align:center;">CAMBIAR LOGO</legend>
+                <div>
+                    <h4 style="color:red">La foto tiene que tener 1000 de ancho x 730 de alto<br/>
+                    Sino el sistema, la adaptar&aacute; a su parecer, y no siempre quedar&aacute; a su gusto</h4>
+                        <upload-icon dirimg="../../../img/home/secciones/" titulo="FOTO SECCION" direccion="../../../img/home/secciones/"></upload-icon>
+                </div>
+                <div>
+                    <md-button class="md-warn" ng-click="ctrl.copiarUrl();">Copiar Url de la foto</md-button>
+                </div>    
+                <div>    
+                    <md-input-container>
+                        <label>Pegar direcci&oacute;n de foto principal</label>
+                        <input ng-model="ctrl.id_foto">
+                    </md-input-container>
+                </div>
+        </fieldset> 
+                   
+        <div layout="row" layout-align="end center">
+            <md-button class="md-primary md-raised" ng-click="ctrl.Edit({'nombre':ctrl.micerveceria[0].nombre,'apodo':ctrl.micerveceria[0].apodo,'email':ctrl.micerveceria[0].email,'direccion':ctrl.micerveceria[0].direccion,'link':ctrl.micerveceria[0].link,'mercadopago':ctrl.micerveceria[0].mercadopago,'link_panel':ctrl.micerveceria[0].link_panel,'instagram':ctrl.micerveceria[0].instagram,'facebook':ctrl.micerveceria[0].facebook,'web':ctrl.micerveceria[0].web,'logo':ctrl.micerveceria[0].logo,'foto_grande':ctrl.micerveceria[0].foto_grande,'foto_chica':ctrl.micerveceria[0].foto_chica},'cerveceria',ctrl.micerveceria[0].id,1);">EDITAR</md-button>
+        </div>
+    </div>  
+</section>
+
+
+<div>
+    <footer></footer>
+</div>

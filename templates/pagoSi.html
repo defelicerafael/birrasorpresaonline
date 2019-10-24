@@ -1,0 +1,22 @@
+<style>
+ html, body {
+      margin: 0;
+      padding: 0;
+}
+
+</style>
+
+<div>
+    <header logo="{{ctrl.logo}}" menu="{{ctrl.menu}}"></header>
+</div>
+
+<div style="width:100%; height: 100%; top: 5%; display: block; margin: 0 auto;">
+    <div ng-init="ctrl.traerSlidersMostrarSi();">
+        <md-progress-linear md-mode="indeterminate" ng-show="loadingSliders"></md-progress-linear>
+        <newslider tipo="foto" fotos="{{ctrl.slidersSi}}"></newslider>
+    </div>
+    <h1 style="text-align:center;">LE AVISAREMOS A {{tuamigo}} A LA BREVEDAD!</h1>
+    <section style="box-sizing: border-box; padding: 1.5%;">
+        <footer></footer>
+    </section>
+</div>

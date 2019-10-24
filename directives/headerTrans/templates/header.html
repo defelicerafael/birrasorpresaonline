@@ -1,0 +1,81 @@
+<style>
+#header{
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+   /* box-shadow: 3px 3px 3px #313E72;*/
+    position: fixed;
+    z-index:10;
+
+    }
+
+#header2{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    position: fixed;
+    z-index:10;
+    height: 10%;
+    visibility: hidden;
+    }     
+    
+ul.header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+ul.header li {
+    float: left;
+}
+
+ul.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    border-bottom-style: solid;
+    border-bottom-color:white;
+}
+
+ul.header li a:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    border-bottom-color:grey;
+    border-top-left-radius: 15px;
+    border-top-right-radius:15px;
+    
+    
+}
+ul.header li a:active {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 15px;
+    border-top-right-radius:15px;
+    
+    color:#004165;
+}
+
+@media only screen and (max-width: 600px) {
+  .imgHeader{
+    display:block;
+    margin:0 auto;
+}
+}
+</style>
+<div layout="row" layout-align="space-around center" class="header" id="header">
+  
+    <div>
+        <a href="" style="text-decoration:none;" du-smooth-scroll du-scrollspy>
+            <img class="imgHeader" src="{{logoHeader.url}}" alt="{{logoHeader.alt}}" title="{{logoHeader.alt}}" style="width:{{logoHeader.width}}; height: auto;"/>
+        </a>
+    </div>
+    <div hide-sm hide-xs>
+        <ul class="header">
+            <li ng-repeat="m in menuHeader track by $index;">
+                <a href="{{m.href}}" class="md-subhead" du-smooth-scroll du-scrollspy>{{m.link}}</a>
+            </li>
+        </ul>
+    </div>
+   
+</div>

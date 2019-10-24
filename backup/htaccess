@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://birrasorpresa.com.ar/$1 [R=301,L,QSA]
+</IfModule>
+
+AddType image/svg+xml svg svgz 
+
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ /index.html
+
