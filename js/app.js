@@ -257,7 +257,7 @@
             
             indu.traerBirraSorpresamostrarSi = function(){
                 $scope.loadingBirraSorpresa = true;
-                $http({method: 'GET',url: 'server/traerBirraSorpresaMostrarSi.php'})
+                $http({method: 'GET',url: 'server/traerBirraSorpresaMostrarSi.php?c='+indu.cerveceria})
                         .then(function successCallback(response) {
                             indu.bs = response.data;
                             indu.cantidadBs = indu.bs.length;
