@@ -2,28 +2,30 @@
 <div style="background-color:white; width: 100%; height: auto;">
     <div  layout="row" layout-xs="column" layout-align="space-between center">
         <div style="padding: 2%;">
-            <img src="img/header/berlina-San-Isidro-Logo.png"  title="Berlina San isidro" alt="Berlina San Isidro" style="width: 100px; height: auto;" />
+            <img ng-src="{{cerveceriaSi[0].logo}}"  title="{{cerveceriaSi[0].nombre}}" alt="{{cerveceriaSi[0].nombre}}" style="width: 100px; height: auto;" />
            
         </div>
         <div>
             <p class="md-body-1" style="color:black;  font-family: 'Candal', sans-serif; text-align: center;">
                 
-                sanisidro@cervezaberlina.com<br/>
-                Chacabuco 435, San Isidro, Buenos Aires.<br/>
+                {{cerveceriaSi[0].email}}<br/>
+                {{cerveceriaSi[0].direccion}}.<br/>
             </p>
         </div>
         <div style="padding: 2%;">
             <!--<a href="http://facebook.com/berlinasanisidro" style="text-decoration: none"><img src="img/footer/facebook-black.png"  title="facebook/animacionespatygonza" alt="facebook/animacionespatygonza" /></a>-->
           <!--  <a href="http://twitter.com/animacionespatygonza" style="text-decoration: none"><img src="img/footer/twitter.png"  title="twitter/animacionespatygonza" alt="twitter/animacionespatygonza" /></a>-->
-            <a href="http://instagram.com/berlinasanisidro" style="text-decoration: none"><img src="img/footer/instagram-black.png"  title="instagram/berlinasanisidro" alt="instagram/animacionespatygonza" /></a>
+            <a ng-href="{{cerveceriaSi[0].instagram}}" style="text-decoration: none"><img src="img/footer/instagram-black.png"  title="El instagram de {{cerveceriaSi[0].instagram}}" alt="El instagram de {{cerveceriaSi[0].instagram}}" /></a>
+            
         </div>
     </div>
 </div>
+
 <center>
-        <div id="mapa" style="height: 50%; width: 100%;">
+        <div id="mapa" style="height: 50%; width: 100%;" ng-if="cerveceriaSi[0].instagram">
               <ng-map zoom="15" center="[40.74, -74.18]">
-                <marker position="chacabuco 435, San isidro, Buenos Aires" 
-                        title="Berlina Al Paso, San isidro" 
+                <marker position="{{cerveceriaSi[0].direccion}}" 
+                        title="{{cerveceriaSi[0].nombre}}" 
                         animation="Animation.BOUNCE"
                     centered="true">
 

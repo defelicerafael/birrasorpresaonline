@@ -6,14 +6,14 @@
        return{
             
             restrict: "E",
-            templateUrl: 'directives/SliderEfectos/templates/sliderEfectos-barrido.html',
+            templateUrl: 'directives/SliderEfectos/templates/sliderEfectos.html',
             scope: {
               
             },
             controller : function($scope,$http,$routeParams){
+               // console.log("entre a sliderEfectosUno");
                 $scope.cerveceria = $routeParams.cerveceria;
-                $scope.fotoelegidaN = "foto"; 
-                console.log("entre");
+                
                 $scope.traerCerveceriaMostrarSi = function(){
                 $scope.loadingBirraSorpresa = true;
                 $http({method: 'GET',url: 'server/traerCerveceriaMostrarSi.php?c='+$scope.cerveceria})
@@ -22,10 +22,11 @@
                             $scope.cantidadcerveceriaSi = $scope.cerveceriaSi.length;
                             $scope.status = response.status;
                             $scope.loadingBirraSorpresa = false;
-                            console.log($scope.cerveceriaSi[0].foto_grande);
+                          //  console.log($scope.cerveceriaSi[0].foto_grande);
                             $scope.foto = $scope.cerveceriaSi[0].foto_grande;
                             $scope.fotoelegidaN=$scope.foto; 
-                            console.log(typeof($scope.foto));
+                            
+                            $scope.clas.forEach(myFunction);
                                 
                             
                         }, function errorCallback(response) {
@@ -37,7 +38,7 @@
             };
                 $scope.traerCerveceriaMostrarSi();
                 $scope.clas = ["cut","cut1","cut2","cut3","cut4","cut5","cut6","cut7","cut8","cut9"];
-                $scope.clas.forEach(myFunction);
+                
                     function myFunction(item) {
                         document.getElementById(item).classList.remove(item);
                         void document.getElementById(item).offsetWidth;

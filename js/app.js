@@ -1,5 +1,5 @@
 (function(){
-    var app = angular.module('induApp',['ngMaterial','ngMessages','config','Header','Iconos','Contacto','Footer','ngMap','SqlServices','ngSanitize','duScroll','ngCookies','720kb.socialshare','Login','upload_icon','sliderEfectos','sliderTML']).value('duScrollOffset', 100);
+    var app = angular.module('induApp',['ngMaterial','ngMessages','config','Header','Iconos','Contacto','Footer','ngMap','SqlServices','ngSanitize','duScroll','ngCookies','720kb.socialshare','Login','upload_icon','sliderEfectos','sliderTML','sliderEfectosUno','sliderTMLC']).value('duScrollOffset', 100);
     
     app.factory("pasapalabra", function() {
         return {
@@ -46,7 +46,7 @@
                 $scope.isSigned  = function(){
                     $scope.authObj.$onAuthStateChanged(function(firebaseUser) {
                         if (firebaseUser) {
-                            console.log("Signed in as:", firebaseUser.email);
+                        //    console.log("Signed in as:", firebaseUser.email);
                             $scope.user_email  = firebaseUser.email;
                             $scope.bienvenido = "Bienvenido " + firebaseUser.email;
                                 if ($location.url()==='/'+indu.cerveceria+'/panel'){
@@ -55,7 +55,7 @@
                                             $location.url(); 
                                         }
                         }else{
-                            console.log("Signed out");
+                    //        console.log("Signed out");
                             $location.url('/'+indu.cerveceria+'/panel');
                         }
                     });
@@ -173,7 +173,7 @@
                             indu.cantidadBirras= indu.birras.length;
                             indu.status = response.status;
                             $scope.loadingBirras = false;
-                            console.log(indu.animador);
+                       //     console.log(indu.animador);
                         }, function errorCallback(response) {
                             indu.birras = response.data;
                             indu.status = response.status;
@@ -218,7 +218,7 @@
             
             indu.traerCerveceriaMostrarSi = function(){
                 $scope.loadingBirraSorpresa = true;
-                console.log(indu.cerveceria);
+            //    console.log(indu.cerveceria);
                 $http({method: 'GET',url: 'server/traerCerveceriaMostrarSi.php?c='+indu.cerveceria})
                         .then(function successCallback(response) {
                             indu.cerveceriaSi = response.data;

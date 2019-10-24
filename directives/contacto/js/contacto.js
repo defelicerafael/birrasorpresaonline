@@ -9,14 +9,18 @@
                 icono:"@"
                 
             },
-            controller : function($scope,SqlInsertArray,$window,$cookies){
-                $scope.insert = function (datos,tabla){
+            controller : function($scope,SqlInsertArray,$window,$cookies,$http,$routeParams){
+            $scope.insert = function (datos,tabla){
                 $scope.isLoading=true;
-                var datos = datos;
+                $scope.cerveceria = $routeParams.cerveceria;
+                
+                var data = datos;
+                data.cerveceria = $scope.cerveceria;
+                
                 var link = 'server/insert_birra_sorpresa.php';  
                 var tabla = tabla;
                 var cantidad = cantidad;
-                SqlInsertArray.async(link,datos,tabla).then(function(d){
+                SqlInsertArray.async(link,data,tabla).then(function(d){
                 console.log(d);
                 $scope.isLoading=false;
                 $cookies.put('nombre', datos.nombre);
@@ -26,12 +30,24 @@
                 $cookies.put('guest_celu', datos.guest_celu);
                 $cookies.put('guest_mensaje', datos.guest_mensaje);
                 console.log($cookies.getAll());
-                $window.location.href = 'https://www.mercadopago.com/mla/checkout/start?pref_id=160687923-66040c05-5062-4ac7-881e-6af7141663c8';
-            });
-        }; 
-            }
-        };
-    });
+                $http({method: 'GET',url: 'server/traerCerveceriaMostrarSi.php?c='+$scope.cerveceria})
+                        .then(function successCallback(response) {
+                            $scope.cerveceriaSi = response.data;
+                            $scope.cantidadcerveceriaSi = $scope.cerveceriaSi.length;
+                            $scope.status = response.status;
+                            $scope.loadingBirraSorpresa = false;
+                            $window.location.href = $scope.cerveceriaSi[0].mercadopago;
+                        }, function errorCallback(response) {
+                            $scope.cerveceriaSi = response.data;
+                            $scope.status = response.status;
+                            $scope.loadingBirraSorpresa = false;
+                            //console.log(indu.sliders);
+                        });
+                });
+            }; 
+        }
+    };
+});
         
     
    

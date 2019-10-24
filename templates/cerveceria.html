@@ -235,7 +235,7 @@ hr.l {
 <div style="width:100%; height: 100%; top: 5%; display: block; margin: 0 auto;" ng-init='ctrl.traerCerveceriaMostrarSi();'>
     <div>
         <md-progress-linear md-mode="indeterminate" ng-show="loadingSliders"></md-progress-linear>
-        <newslider></newslider>
+        <newsliderc></newsliderc>
     </div>
 
     <section id="somos">
@@ -262,13 +262,13 @@ En {{ctrl.cerveceriaSi[0].nombre}} cuidamos y fomentamos la amistad porque sabem
                            socialshare
                            socialshare-provider="twitter"
                            socialshare-text="Regalale un vaso de cerveza artesanal, regalale un momento &uacute;nico a tus amigos y amigas"
-                           socialshare-hashtags="birrasorpresa #berlinasanisidro"
+                           socialshare-hashtags="#birrasorpresa"
                            socialshare-url="https://birrasorpresa.com.ar">
                             <img src="img/redes/twitter.png" style="width:60px; height: auto;" alt="Compartilo en twitter" title="Compartilo en twitter"/>
                        </a>
                     </div>
                     <div id="facebook">
-                        <div class="fb-share-button" data-href="http://localhost/berlinasanisidro/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fberlinasanisidro%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img src="img/redes/facebook.png" style="width:60px; height: auto;" alt="Compartilo por Facebook" title="Compartilo por Facebook"/></a></div>
+                        <div class="fb-share-button" data-href="https://birrasorpresa.com.ar/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fberlinasanisidro%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img src="img/redes/facebook.png" style="width:60px; height: auto;" alt="Compartilo por Facebook" title="Compartilo por Facebook"/></a></div>
                     </div>
                     <div id="whatsapp">
                         <a href="#"
@@ -297,14 +297,13 @@ En {{ctrl.cerveceriaSi[0].nombre}} cuidamos y fomentamos la amistad porque sabem
         <separador separador="HOY TE SORPRENDO"></separador>
         <contacto></contacto>
     </section>
-    <br/>
-    <hr>
-    <section style="box-sizing: border-box; background-color: white;" ng-init="ctrl.traerBirrasMostrarSi();" id="birras">
+    
+   <!-- <section style="box-sizing: border-box; background-color: white;" ng-init="ctrl.traerBirrasMostrarSi();" id="birras">
         <separador separador="NUESTRAS CERVEZAS"></separador>
         <br/>
              <iconos icono="{{ctrl.birrasSi}}" ng-show="!loadingBirras"></iconos>
-    </section>
-    <hr>
+    </section>-->
+    
     <section style="box-sizing: border-box; padding: 1.5%;">
         <footer></footer>
     </section>
